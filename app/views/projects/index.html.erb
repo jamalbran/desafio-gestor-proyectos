@@ -1,0 +1,45 @@
+<div class="container">
+  <form> 
+      <p>Buscar proyecto por estado:</p>
+      <div class="col-md-3 mb-3">
+        <label for="validationDefault04">Estado del proyecto</label>
+        <select class="custom-select" name="state">
+          <option value= "0" >propuesta</option>
+          <option value= "1" >En Progreso</option>
+          <option value= "2 ">Termiando</option>
+          <option value= "">todo</option>
+        </select>
+      </div>
+    <button class="btn btn-success" type="submit">Buscar proyecto</button>
+  </form>
+</div>
+
+<div class="container">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Descripcion</th>
+        <th scope="col">Estado</th>
+        <th scope="col">Fecha de Inicio</th>
+        <th scope="col">Fecha de Termino</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @projects.each do |project|%>
+      <tr>
+        <td> <%= project.id%> </td>
+        <td> <%= project.name%> </td>
+        <td> <%= project.description%> </td>
+        <td> <%= project.state%> </td>
+        <td> <%= project.initial_date%> </td>
+        <td> <%= project.end_date%> </td>
+      </tr>
+      <% end%>
+    </tbody>
+  </table>
+
+  <%= link_to 'Nuevo Proyecto', projects_new_path, class: 'btn btn-success'%>
+
+</div>
